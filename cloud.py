@@ -13,8 +13,9 @@ r = redis.from_url(os.environ.get("REDIS_URL_impharaon"))
 def write_users(**params):
     print(params['id'])
     if params['url'] != None:
-        r.hmset('keyss',{'field':'value','field2':'value'})
-
+        r.hmset('ls_' + params['id'],params)
+    else :
+        r.hmset('lsp_' + params['id'],params)
 
 
 
