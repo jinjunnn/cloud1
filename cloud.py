@@ -24,6 +24,13 @@ def write_users(**params):
 def write_users_sent_message_times(**params):
     r.hmset('test','key','value')
 
+@engine.define
+def del_all_redis_key():
+    keys = r.keys('*')
+    for item in keys:
+        r.delete(item)
+
+
 
 
 
