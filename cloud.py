@@ -29,7 +29,7 @@ def del_all_redis_key():
     keys = r.keys('*')
     for item in keys:
         r.delete(item)
-
+        return
 
 
 
