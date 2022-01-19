@@ -17,6 +17,7 @@ def write_users(**params):
         if not data_info.get(key):
             data_info.pop(key)
     result = r.hmset(params['id'],data_info)
+    #12345
     print(result)
 
 
