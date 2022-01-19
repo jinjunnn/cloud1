@@ -11,11 +11,15 @@ r = redis.from_url(os.environ.get("REDIS_URL_impharaon"))
 
 @engine.define
 def write_users(**params):
-    print(params['id'])
+    #这段代码是将空值数据过滤
+    data_info = params
+    for key in list(data_info.keys()):
+        if not data_info.get(key):
+            data_info.pop(key)
     if params['url'] != None:
-        r.hmset('ls_' + params['id'],params)
+        r.hmset(params['id'],data_info)
     else :
-        r.hmset('lsp_' + params['id'],params)
+        r.hmset(params['id'],data_info)
 
 
 
