@@ -16,11 +16,8 @@ def write_users(**params):
     for key in list(data_info.keys()):
         if not data_info.get(key):
             data_info.pop(key)
-    if params['url'] != None:
-        r.hmset(params['id'],data_info)
-    else :
-        r.hmset(params['id'],data_info)
-
+    result = r.hmset(params['id'],data_info)
+    print(result)
 
 
 @engine.define
